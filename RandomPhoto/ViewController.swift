@@ -21,6 +21,7 @@ class ViewController: UIViewController {
     private let button: UIButton = {
         let button = UIButton()
         button.backgroundColor = .white
+        button.layer.cornerRadius = 15
         button.setTitle("Random Photo", for: .normal)
         button.setTitleColor(.black, for: .normal)
         
