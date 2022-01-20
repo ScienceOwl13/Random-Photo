@@ -48,6 +48,8 @@ class ViewController: UIViewController {
         view.addSubview(imageView) //makes image visable
         imageView.frame = CGRect(x: 0, y: 0, width: 300, height: 300) //sets the dimensions for the image
         imageView.center = view.center //puts the image in the center
+        imageView.layer.cornerRadius = 10
+        imageView.clipsToBounds = true
         
         view.addSubview(button) //Puts the button on the screen
         
