@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import AVFoundation
+import AudioToolbox
 
 class ViewController: UIViewController {
     
@@ -14,19 +16,23 @@ class ViewController: UIViewController {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.backgroundColor = .white
+        imageView.layer.borderWidth = 5
         return imageView
     }()
     
     //gets the region for the button
     private let button: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .white
+        button.backgroundColor = .systemOrange
         button.layer.cornerRadius = 15
         button.setTitle("Random Photo", for: .normal)
         button.setTitleColor(.black, for: .normal)
+        button.layer.borderWidth = 6
+        button.layer.borderColor = UIColor.black.cgColor
         
         return button
     }()
+    
     
     //array for the button colours
     let colors: [UIColor] = [
@@ -35,7 +41,6 @@ class ViewController: UIViewController {
         .systemRed,
         .systemBlue,
         .systemTeal,
-        .systemGray,
         .systemOrange,
         .systemYellow,
         .systemPurple,
@@ -48,6 +53,8 @@ class ViewController: UIViewController {
         view.addSubview(imageView) //makes image visable
         imageView.frame = CGRect(x: 0, y: 0, width: 300, height: 300) //sets the dimensions for the image
         imageView.center = view.center //puts the image in the center
+        imageView.layer.cornerRadius = 8
+        imageView.clipsToBounds = true
         
         view.addSubview(button) //Puts the button on the screen
         
@@ -61,6 +68,18 @@ class ViewController: UIViewController {
         getRandomPhoto()
         
         view.backgroundColor = colors.randomElement() //sets the random backgroundcolour when the button is pressed
+        button.backgroundColor = colors.randomElement()
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
+        
+        
+        if button.backgroundColor == view.backgroundColor {
+            button.backgroundColor = colors.randomElement()
+            
+            print("The backgrounds are the same so they have been changed.")
+            
+        }
+        
+        
     }
     
     //Makes the button not in the "back to home screen bar"

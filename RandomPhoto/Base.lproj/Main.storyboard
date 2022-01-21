@@ -29,7 +29,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ATK-ps-npc" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="lgV-lp-rGx">
+                    <navigationBar key="navigationBar" contentMode="center" largeTitles="YES" id="lgV-lp-rGx">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
